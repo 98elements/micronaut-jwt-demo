@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com._98elements.elements
+---
+testFramework: spock
+sourceLanguage: java
