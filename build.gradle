@@ -5,9 +5,9 @@ plugins {
     id "net.ltgt.apt-idea" version "0.18"
 }
 
-apply plugin:"application"
-apply plugin:"java"
-apply plugin:"groovy"
+apply plugin: "application"
+apply plugin: "java"
+apply plugin: "groovy"
 
 version "0.1"
 group "com._98elements.elements"
@@ -34,6 +34,7 @@ dependencies {
     compile "io.micronaut:micronaut-validation"
     compile "io.micronaut:micronaut-runtime"
     compileOnly "io.micronaut:micronaut-inject-java"
+    compile "io.github.resilience4j:resilience4j-ratelimiter:0.13.2"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     testCompile("org.spockframework:spock-core") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
@@ -51,7 +52,7 @@ shadowJar {
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
 mainClassName = "com._98elements.elements.Application"
-tasks.withType(JavaCompile){
+tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.compilerArgs.add('-parameters')
 }
